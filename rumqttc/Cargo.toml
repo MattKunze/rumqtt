@@ -14,13 +14,14 @@ all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
 
 [features]
+# tls = ["tokio-rustls"]
 websocket = ["async-tungstenite", "ws_stream_tungstenite"]
 
 [dependencies]
 tokio = { version = "1.0", features = ["rt", "macros", "io-util", "net", "time"] }
 bytes = "1.0"
 webpki = "0.21"
-tokio-rustls = "0.22"
+# tokio-rustls = { version="0.22", default-features = false, optional = true }
 async-tungstenite = { version = "0.13.1", default-features = false, features = ["tokio-rustls"], optional = true }
 ws_stream_tungstenite = { version = "0.6.1", default-features = false, features = ["tokio_io"], optional = true }
 mqttbytes = { path = "../mqttbytes", version = "0.6" }
@@ -40,5 +41,5 @@ envy = "0.4"
 jsonwebtoken = "7"
 tokio = { version = "1.0", features = ["full", "macros"] }
 matches = "0.1.8"
-rustls = "0.19"
-rustls-native-certs = "0.5.0"
+# rustls = "0.19"
+# rustls-native-certs = "0.5.0"
